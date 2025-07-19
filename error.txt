@@ -1,0 +1,33 @@
+using device: cpu
+Max Lenght of source sentance: 309
+Max Lenght of terget sentance: 274
+Processing Epoch 00:   0%|                                                                                                             | 0/3638 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "f:\Transformer-Model\train.py", line 145, in <module>
+    train_model(config)
+    ^^^^^^^^^^^^^^^^^^^
+  File "f:\Transformer-Model\train.py", line 113, in train_model
+    encoder_output = model.encoder(encoder_input, encoder_mask) # (B, Seq_len, d_model)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\Transformer-Model\model.py", line 188, in encoder
+    return self.encoder(src, src_mask)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\Transformer-Model\model.py", line 186, in encoder
+    src = self.src_embed(src)
+          ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\Transformer-Model\model.py", line 13, in forward
+    return self.embedding(x) * math.sqrt(self.d_model)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\sparse.py", line 162, in forward
+    return F.embedding(
+           ^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected tensor for argument #1 'indices' to have one of the following scalar types: Long, Int; but got torch.FloatTensor instead (while checking arguments for embedding)
